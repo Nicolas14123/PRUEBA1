@@ -1,0 +1,220 @@
+body {
+    position: relative;
+    overflow-x: hidden;
+    background-color: #fff0f5;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;  /* más grande para PC */
+    color: #e91e63;
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px 40px;
+    max-width: 600px;
+    border: 4px solid #ff7997;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ff7997aa;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+    position: relative;
+}
+
+/* Corazones decorativos */
+h1::before,
+h1::after {
+    content: "💖";
+    font-size: 1.8rem; /* más grande en PC */
+    position: absolute;
+    color: #e91e63;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1::before {
+    left: -35px;
+}
+
+h1::after {
+    right: -35px;
+}
+
+.galeria img {
+    max-width: 250px; /* más grande en PC */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+}
+
+.mensaje {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left; /* mejor lectura en PC */
+    font-size: 1.3rem; /* tamaño más grande */
+    line-height: 1.5;
+    color: #444;
+    padding: 20px 30px;
+    background-color: #fff0f6;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 121, 151, 0.3);
+}
+
+/* Ajuste para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        max-width: 280px;
+        padding: 10px 20px;
+        border-width: 3px;
+        box-shadow: 0 0 10px #ff7997aa;
+    }
+    h1::before,
+    h1::after {
+        font-size: 1.2rem;
+        left: -25px;
+        right: -25px;
+    }
+    .galeria img {
+        max-width: 100px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        margin: 5px;
+    }
+    .mensaje {
+        font-size: 0.85rem;
+        padding: 0 10px;
+        text-align: center;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+}
+
+#playMusicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#playMusicBtn:hover {
+    background-color: #ff85c1;
+}
+
+p {
+    margin-top: 0.1rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.heart {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #e91e63;
+    transform: rotate(-45deg);
+    margin: 20px auto;
+    animation: beat 1s infinite;
+    cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #e91e63;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    right: -20px;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+/* Fondo con corazones animados */
+.heart-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0; /* Menor que .galeria */
+}
+
+.heart-bg .heart {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background-color: #e91e63;
+    transform: rotate(-45deg);
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+.heart-bg .heart::before,
+.heart-bg .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background-color: #e91e63;
+    border-radius: 50%;
+}
+
+.heart-bg .heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart-bg .heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-20vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
+

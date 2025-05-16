@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti mi pequeña sina💖</title>
+    <link rel="stylesheet" href="style.css"> </head>
+    
+<body>
+    <h1>Para la persona más especial del mundo 🌹</h1>
+    <div class="heart-bg"></div>
+
+    <p>
+        Cada momento contigo es único , Gracias por ser mi alegría y mi paz 🥰
+    </p>
+    <div class="heart"></div>
+<script>
+    const heartBg = document.querySelector('.heart-bg');
+    const colors = ['#e91e63', '#ff4081', '#f48fb1', '#f06292'];
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw'; // posición horizontal aleatoria
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's'; // duración animación aleatoria
+        heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.setProperty('--color', heart.style.backgroundColor);
+
+        heartBg.appendChild(heart);
+
+        // Elimina el corazón después de que termine la animación
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }
+
+    // Crear corazones cada 300 ms aprox.
+    setInterval(createHeart, 300);
+</script>
+
+
+<div class="galeria">
+    <img src="img/nosotros.jpg" alt="Nosotros"> <img src="img/NOSOTROS2.jpg" alt="Juntos siempre"> </div>
+<div class="mensaje">
+    <p>Mi niña adorada 🥰,</p>
+    <p>Las palabras se quedan cortas para expresar lo profundo de mi aprecio por ti 💖. Cada día me asombras con tu valentía 💪, esa fuerza interior que te impulsa a enfrentar cada desafío con una determinación admirable ✨. Ver cómo te levantas ante las dificultades me llena de un orgullo inmenso 🤩, un sentimiento que crece con cada paso que das 👣.</p>
+    <p>Eres una guerrera 🛡️, mi pequeña, y tu espíritu indomable ilumina mi mundo 🌟. Pero más allá de tu coraje, está ese corazón tan puro ❤️ y esa alma tan noble que hacen que te ame más de lo que las palabras jamás podrán decir 💬.</p>
+    <p>Quiero que sepas, hoy y siempre 🙏, que no estás sola 🤗. Estaré a tu lado en cada aventura 🚀, en cada tropiezo 🫂, celebrando tus triunfos 🎉 y ofreciéndote mi hombro cuando necesites apoyo 🤗. Mi amor por ti es incondicional e infinito ∞, un faro que guiará siempre tu camino 🧭.</p>
+    <p>Te amo con todo mi ser 💘, mi niña valiente 🌟. Siempre estaré contigo 🥰.</p>
+</div>
+    <audio id="musica" loop>
+    <source src="musica/MUSICA.mp3" type="audio/mpeg"> Tu navegador no soporta música de fondo.
+</audio>
+
+<button id="playMusicBtn">🎵 Activar música</button>
+
+<script>
+    const botonMusica = document.getElementById('playMusicBtn');
+    const audio = document.getElementById('musica');
+
+    botonMusica.addEventListener('click', () => {
+        audio.play();
+        botonMusica.style.display = 'none'; // Ocultar el botón después de iniciar la música
+    });
+</script>
+
+
+</body>
+</html>
